@@ -20,7 +20,7 @@
 
 <!-- 新規投稿 -->
 <h2>New book</h2>
-<%= form_with model: @book, url: '/books', method: :post do |f| %>
+<%= form_with model: Book.new do |f| %>
 
   <p>Title</p>
   <%= f.text_field :title %>
@@ -31,18 +31,15 @@
   <%= f.submit 'Create Book' %>
 <% end %> 
 
-<h2>Book detail</h2>
+<h2>Books</h2>
+<table>
+  <tr>
+    <th>　</th>
+    <th>Title</th>
+    <th>Opinion</th>
+  </tr>
+  <tr>
 
-<!-- ユーザーの投稿一覧 -->
 
-<% @books.each do |book| %>
-<div>
-  <%= link_to book_path(book.id) do %>
-    <%= image_tag book.get_image %>
-  <% end %>
-  <p>投稿ユーザー画像：<%= image_tag book.user.get_profile_image(100,100) %></p>
-  <p>ショップ名：<%= book.shop_name %></p>
-  <p>説明：<%= book.caption %></p>
-  <p>ユーザーネーム：<%= book.user.name %></p>
-</div>
-<% end %>
+</table>
+
