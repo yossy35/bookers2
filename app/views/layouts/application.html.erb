@@ -19,33 +19,37 @@
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <div class="navbar-collapse collapse show" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
-            <li class="nav-item">
-              <%= link_to "Home", user_path(current_user) %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Users", users_path %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Books", books_path %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-            </li>
+              <li class="nav-link text-light">
+                <i class="fa-solid fa-house"></i>
+                <%= link_to "Home", user_path(current_user), class:"text-light" %>
+              </li>
+              <li class="nav-link text-light">
+                <i class="fa-solid fa-users"></i>
+                <%= link_to "Users", users_path, class:"text-light" %>
+              </li>
+              <li class="nav-link text-light">
+                <i class="fa-solid fa-book-open"></i>
+                <%= link_to "Books", books_path, class:"text-light" %>
+              </li>
+              <li class="nav-link text-light">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <%= link_to "Log out", destroy_user_session_path, class:"text-light", method: :delete %>
+              </li>
             <% else %>
             <li class="nav-item">
-              <%= link_to "Home", root_path %>
+              <%= link_to "Home", root_path, class:"text-light" %>
             </li>
             <li class="nav-item">
-              <%= link_to "About", about_path %>
+              <%= link_to "About", about_path, class:"text-light" %>
             </li>
             <li class="nav-item">
-              <%= link_to "Sign up", new_user_registration_path %>
+              <%= link_to "Sign up", new_user_registration_path, class:"text-light" %>
             </li>
             <li class="nav-item">
-              <%= link_to "Log in", new_user_session_path %>
+              <%= link_to "Log in", new_user_session_path, class:"text-light" %>
             </li>
             <% end %>
             </ul>
