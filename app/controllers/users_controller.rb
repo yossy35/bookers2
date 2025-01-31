@@ -2,9 +2,8 @@ class UsersController < ApplicationController
   before_action :is_matching_login_user, only: [:edit, :update]
 
   def show
-    @user = current_user
-    @book = Book.new
-    @books = current_user.books.all
+    @user = User.find(params[:id])
+    @books = @user.books.all
   end
 
   def edit
