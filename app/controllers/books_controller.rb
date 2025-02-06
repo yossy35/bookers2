@@ -24,7 +24,7 @@ class BooksController < ApplicationController
     else
       @book = Book.new
       @user = current_user
-      flash.now[:notice] = "error!"
+      flash.now[:notice] = "error!can't be blank"
       render :index
     end
   end
